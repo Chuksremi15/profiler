@@ -1,0 +1,66 @@
+ <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiler</title>
+   
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Profiler</title>
+  
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="container wrapper">
+          <h1 class="logo">Profiler.</h1>
+          <nav class="navbar-menu">
+            <ul class="navbar-menu-item">
+              <li>
+                <a href="/">Profiles</a>
+              </li>
+              <li>
+                <a href="/register">Register</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <!-- register form -->
+      <div class="showcase-form container">
+          <div class="showcase-form card">
+            <h2>Sign Up</h2>
+
+
+
+            {% if newmail %}
+                <h3>user with the mail {{newmail}} already exist</h3>
+            {% endif %}
+           
+  
+            <form action="/register"  method="POST">
+              <div class="form-control">
+                <input type="text" name="firstname" placeholder="First name" />
+              </div>
+              <div class="form-control">
+                <input type="text" name="lastname" placeholder="Last name" />
+              </div>
+              <div class="form-control">
+                <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div class="form-control">
+                <input type="password" name="password" placeholder="Password" />
+              </div>
+              
+              <input type="submit" class="btn"></input>
+            </form>
+          </div>
+          </div>
+      </div>
+</body>
+</html>
