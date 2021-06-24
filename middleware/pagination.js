@@ -1,3 +1,7 @@
+const redis = require("redis");
+const REDIS_PORT = process.env.PORT || 6379;
+const client = redis.createClient(REDIS_PORT);
+
 const pagination = (model) => async (req, res, next) => {
   // Pagination
   const page = parseInt(req.query.page, 10) || 1;
@@ -34,7 +38,6 @@ const pagination = (model) => async (req, res, next) => {
     data: results,
     limit,
   };
-
   next();
 };
 

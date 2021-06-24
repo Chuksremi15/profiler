@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
 var bodyParser = require("body-parser");
+const docs = require("./docs");
+const swaggerUI = require("swagger-ui-express");
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -27,6 +29,9 @@ const twing = require("./routes/twing");
 
 app.use("/api/users", users);
 app.use("/", twing);
+
+//Swagger
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(docs));
 
 // set static folder
 app.use(express.static(path.join(__dirname, "public")));

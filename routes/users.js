@@ -11,11 +11,12 @@ const {
 const router = express.Router();
 const pagination = require("../middleware/pagination");
 const { protect } = require("../middleware/auth");
+const cache = require("../middleware/cache");
 const User = require("../model/User");
 
 router.route("/").post(createUser);
 
-router.route("/").get(pagination(User), getUsers);
+router.get("/", cache(20), pagination(User), getUsers);
 
 router.route("/:id").get(getUser);
 
